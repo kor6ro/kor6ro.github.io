@@ -1,14 +1,22 @@
 // Theme Toggle
-const themeSwitch = document.querySelector('#checkbox');
+const themeToggle = document.querySelector('#themeToggle');
+const themeIcon = document.querySelector('#themeIcon');
+let isDarkMode = false;
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    themeSwitch.checked = theme === 'dark';
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+        isDarkMode = true;
+    } else {
+        themeIcon.className = 'fas fa-moon';
+        isDarkMode = false;
+    }
 }
 
-themeSwitch.addEventListener('change', function() {
-    const theme = this.checked ? 'dark' : 'light';
-    applyTheme(theme);
+themeToggle.addEventListener('click', function() {
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    applyTheme(newTheme);
 });
 
 // Set initial theme to light
