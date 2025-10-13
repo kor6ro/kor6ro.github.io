@@ -13,41 +13,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-// --- MOBILE NAVIGATION (HAMBURGER MENU) ---
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links li a');
+    // --- MOBILE NAVIGATION (HAMBURGER MENU) ---
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('ul.nav-links'); // Make selector more specific
+    const links = document.querySelectorAll('ul.nav-links li a');
 
-// Toggle menu on hamburger click
-hamburger.addEventListener('click', () => {
-    // Gunakan kelas 'open' untuk animasi dan 'nav-active' untuk menampilkannya
-    navLinks.classList.toggle('nav-active');
-    setTimeout(() => { // Beri sedikit jeda agar transisi slide-in terlihat
-        navLinks.classList.toggle('open');
-    }, 10);
-    
-    hamburger.querySelector('i').classList.toggle('fa-bars');
-    hamburger.querySelector('i').classList.toggle('fa-times');
-});
+    // Function to OPEN the menu
+    function openMenu() {
+        navLinks.classList.add('nav-active');
+        // setTimeout allows the display property to apply before the transform
+        setTimeout(() => {
+            navLinks.classList.add('open');
+        }, 10);
+        hamburger.querySelector('i').classList.remove('fa-bars');
+        hamburger.querySelector('i').classList.add('fa-times');
+    }
 
-// Function to close the menu
-function closeMenu() {
-    if (navLinks.classList.contains('open')) {
+    // Function to CLOSE the menu
+    function closeMenu() {
         navLinks.classList.remove('open');
         hamburger.querySelector('i').classList.remove('fa-times');
         hamburger.querySelector('i').classList.add('fa-bars');
-        
-        // Tunggu animasi selesai sebelum menyembunyikannya
+        // Wait for the transition to finish before hiding the element
         setTimeout(() => {
             navLinks.classList.remove('nav-active');
-        }, 400); // Durasi harus sama dengan transisi di CSS
+        }, 400); // This duration MUST match the transition duration in your CSS
     }
-}
 
-// Close menu when a navigation link is clicked
-links.forEach(link => {
-    link.addEventListener('click', closeMenu);
-});
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+            closeMenu(); // Use the close function if menu is open
+        } else {
+            openMenu(); // Use the open function if menu is closed
+        }
+    });
+
+    // Close menu when a navigation link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
 
 
     // --- PHOTO SLIDER ---
@@ -78,6 +83,7 @@ links.forEach(link => {
     }
 
 
+    // --- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS ---
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
