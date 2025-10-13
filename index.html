@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Futuristik Saya</title>
+    <title>My Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,95 +11,147 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
+<header>
+    <nav>
+        <div class="nav-left">
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="logo">
-                <h1>Nama Anda</h1>
+                <img src="images/logo.gif" alt="Kor6ro Logo" class="logo-img">
             </div>
-            <ul class="nav-links">
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <div class="nav-extra">
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider"></div>
-                    </label>
-                </div>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </div>
+        </div>
+
+        <ul class="nav-links">
+            <div class="sidebar-header">
+                <img src="images/logo.gif" alt="Kor6ro Logo" class="sidebar-logo">
             </div>
-        </nav>
-    </header>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider"></div>
+                </label>
+            </div>
+        </div>
+    </nav>
+</header>
 
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h2 class="animated-text">Selamat Datang</h2>
-                <p>Saya seorang [Pekerjaan Anda] dengan passion untuk [Minat Anda]</p>
-                <a href="#projects" class="cta-button">Lihat Karya Saya</a>
+                <h2 class="animated-text">Welcome</h2>
+                <p>I am a Newbie Web Developer, Newbie Editor with a passion for Doing Better and Better</p>
+                <a href="#projects" class="cta-button">View My Work</a>
             </div>
         </section>
 
         <section id="about">
-            <h2>Tentang Saya</h2>
+            <h2>About Me</h2>
             <p>
-                Tuliskan deskripsi singkat tentang diri Anda, keahlian Anda, dan pengalaman Anda di sini. 
-                Ceritakan passion Anda dan apa yang membuat Anda bersemangat dalam pekerjaan.
+             A person who is eager to improve and work even harder.
             </p>
-            
             <div class="photo-gallery">
+                <button class="gallery-arrow arrow-left" onclick="prevSlide()" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-arrow arrow-right" onclick="nextSlide()" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
                 <div class="photo-slider" id="photoSlider">
-                    <div class="photo-slide"><span>📸 Foto Portfolio 1</span></div>
-                    <div class="photo-slide"><span>📸 Foto Portfolio 2</span></div>
-                    <div class="photo-slide"><span>📸 Foto Portfolio 3</span></div>
-                    <div class="photo-slide"><span>📸 Foto Portfolio 4</span></div>
-                </div>
-                <div class="gallery-controls">
-                    <button class="gallery-btn" onclick="prevSlide()">← Prev</button>
-                    <button class="gallery-btn" onclick="nextSlide()">Next →</button>
+                    <div class="photo-slide slide-1"></div>
+                    <div class="photo-slide slide-2"></div>
+                    <div class="photo-slide slide-3"></div>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Proyek Saya</h2>
-            <div class="project-container">
+            <h2>My Projects</h2>
+                <p>Currently, I dont have any good projects</p>
+            <!-- <div class="project-container">
                 <div class="project-card">
-                    <h3>Nama Proyek 1</h3>
-                    <p>Deskripsi singkat tentang proyek pertama Anda dan teknologi yang digunakan.</p>
+                    <div class="project-image-placeholder">
+                        <span>🖼️ Project Image</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Name 1</h3>
+                        <p>A brief description of your first project and the technologies used.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Project <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Nama Proyek 2</h3>
-                    <p>Deskripsi singkat tentang proyek kedua Anda dan hasil yang dicapai.</p>
+                    <div class="project-image-placeholder">
+                        <span>🖼️ Project Image</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <p>A brief description of your second project and the results achieved.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Nama Proyek 3</h3>
-                    <p>Deskripsi singkat tentang proyek ketiga Anda dan tantangan yang dihadapi.</p>
+                    <div class="project-image-placeholder">
+                        <span>🖼️ Project Image</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Name 3</h3>
+                        <p>A brief description of your third project and the challenges faced.</p>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Live Demo <i class="fas fa-bolt"></i></a>
+                    </div>
                 </div>
-                </div>
+            </div> -->
         </section>
 
         <section id="contact">
-            <h2>Hubungi Saya</h2>
-            <p>Tertarik untuk berkolaborasi? Jangan ragu untuk menghubungi saya melalui platform berikut:</p>
-            
             <div class="social-icons">
-                <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/username" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/username" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/username" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://tiktok.com/@username" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://x.com/username" title="X (Twitter)" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="mailto:kor6rokun@example.com" class="social-card" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://linkedin.com/in/kor6ro" class="social-card" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/kor6ro" class="social-card" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://instagram.com/kor6ro" class="social-card" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://tiktok.com/@kor6ro" class="social-card" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://youtube.com/@kor6ro" class="social-card" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://wa.me/6287759049314" class="social-card" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Nama Anda. All rights reserved.</p>
+        <p>&copy; 2025 Kor6ro. All rights reserved.</p>
     </footer>
 
     <script src="scripts.js"></script>
