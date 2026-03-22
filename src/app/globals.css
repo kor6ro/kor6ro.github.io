@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wasmer-bg: #0d1117;
+  --color-wasmer-surface: #161b22;
+  --color-wasmer-border: #30363d;
+  --color-wasmer-accent: #58a6ff;
+  --color-wasmer-glow: rgba(88, 166, 255, 0.4);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--color-wasmer-bg)] text-[#c9d1d9] antialiased overflow-x-hidden;
+    font-family: var(--font-inter), sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(22, 27, 34, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-wasmer-border);
+  }
+
+  .glass-header {
+    @apply bg-[var(--color-wasmer-bg)]/80 backdrop-blur-xl border-b border-[var(--color-wasmer-border)];
+  }
+
+  .glass-footer {
+    @apply bg-[var(--color-wasmer-bg)]/80 backdrop-blur-xl border-t border-[var(--color-wasmer-border)];
+  }
+
+  .glow-btn {
+    background: var(--color-wasmer-surface);
+    border: 1px solid var(--color-wasmer-border);
+    transition: all 0.3s ease;
+  }
+
+  .glow-btn:hover {
+    border-color: var(--color-wasmer-accent);
+    box-shadow: 0 0 15px var(--color-wasmer-glow);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px var(--color-wasmer-glow);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl active:scale-95;
+  }
+
+  .nav-link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--color-wasmer-accent)] after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
